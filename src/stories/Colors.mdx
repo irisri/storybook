@@ -1,0 +1,33 @@
+import { Meta } from '@storybook/blocks';
+import { ColorPalette, ColorItem } from '@storybook/blocks';
+import { grayPllater, purplePalette, greenPalette, redPalette, iridescentTurquoisePalette } from './colors.ts'
+
+<Meta title="Colors" />
+
+<ColorPalette>
+  <ColorItem
+    title="theme.color.greyscale"
+    subtitle="main color is 500"
+    colors={grayPllater}
+  />
+  <ColorItem 
+    title="theme.color.purplescale" 
+    subtitle="main is 500" 
+    colors={purplePalette} 
+  />
+  <ColorItem 
+    title="theme.color.greenPalette" 
+    subtitle="main is 500" 
+    colors={greenPalette} 
+  />
+  <ColorItem
+    title="theme.color.redscale"
+    subtitle="main is 500"
+    colors={redPalette}
+  />
+    <ColorItem
+    title="theme.color.iridescentTurquoise"
+    subtitle="main is 500"
+    colors={iridescentTurquoisePalette}
+  />
+</ColorPalette>
