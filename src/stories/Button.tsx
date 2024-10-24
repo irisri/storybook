@@ -1,17 +1,25 @@
 import React from 'react';
+import { grayPllater, iridescentTurquoisePalette } from './colors'
 
-import './button.css';
+import { styled } from 'storybook/internal/theming';
+
+const StyledButton = styled.button`
+  border-radius: 8px;
+  padding: 4px 10px;
+  font-family: Afacad Flux, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600 ;
+  background-color: ${grayPllater[100]};
+  color: ${iridescentTurquoisePalette[800]};
+  border: 1px solid ${iridescentTurquoisePalette[800]};
+
+`
 
 export interface ButtonProps {
-  /** Is this the principal call to action on the page? */
   variant?: 'primary' | 'secondary';
-  /** What background color to use */
   backgroundColor?: string;
-  /** How large should the button be? */
   size?: 'small' | 'medium' | 'large';
-  /** Button contents */
   label: string;
-  /** Optional click handler */
   onClick?: () => void;
 }
 
@@ -25,13 +33,13 @@ export const Button = ({
 }: ButtonProps) => {
   const mode = `storybook-button--${variant}`;
   return (
-    <button
+    <StyledButton
       type="button"
       className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
       style={{ backgroundColor }}
       {...props}
     >
       {label}
-    </button>
+    </StyledButton>
   );
 };
