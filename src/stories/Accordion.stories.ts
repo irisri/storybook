@@ -11,7 +11,9 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    variant: 'primary',
-    label: 'Accordion',
+    accordionList: [
+      { title: 'Title', description: 'this is description', icon: true },
+      { title: 'Second title', description: 'this is description' },
+    ],
   },
 };

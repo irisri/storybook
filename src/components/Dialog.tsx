@@ -1,16 +1,13 @@
 import { forwardRef, MouseEvent } from 'react';
 import * as MUIcon from '@mui/icons-material';
 
-interface IconProps {
-  icon?: keyof typeof MUIcon;
-}
-
-interface DialogProps {
+type DialogType = {
   children: React.ReactNode;
   toggleDialog: () => void;
-}
+  icon?: keyof typeof MUIcon;
+};
 
-export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(({ children, toggleDialog }, ref) => {
+export const Dialog = forwardRef<HTMLDialogElement, DialogType>(({ children, toggleDialog }, ref) => {
   const onClick = () => {};
 
   const Icon = MUIcon['Close'];
