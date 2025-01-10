@@ -1,7 +1,7 @@
 import React from 'react';
-import { grayPllater, iridescentTurquoisePalette } from './colors'
 
 import { styled } from 'storybook/internal/theming';
+import { grayPllater, iridescentTurquoisePalette } from '../stories/colors';
 
 const StyledButton = styled.button`
   border-radius: 8px;

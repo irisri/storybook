@@ -1,6 +1,6 @@
 import { useRef } from "react"
 import type { Meta, StoryObj } from '@storybook/react';
-import { Dialog } from './Dialog'
+import { Dialog } from '../components/Dialog'
 
 const meta: Meta<typeof Dialog> = {
     title: 'Components/Dialog',

@@ -1,0 +1,39 @@
+import { forwardRef, MouseEvent } from 'react';
+import * as MUIcon from '@mui/icons-material';
+
+interface IconProps {
+  icon?: keyof typeof MUIcon;
+}
+
+interface DialogProps {
+  children: React.ReactNode;
+  toggleDialog: () => void;
+}
+
+export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(({ children, toggleDialog }, ref) => {
+  const onClick = () => {};
+
+  const Icon = MUIcon['Close'];
+
+  return (
+    <dialog
+      ref={ref}
+      onClick={(event: MouseEvent<HTMLDialogElement>) => {
+        console.log('event', event.currentTarget, event.target);
+        if (event.currentTarget === event.target) {
+          toggleDialog();
+        }
+      }}
+    >
+      <div>
+        {children}
+        <Icon />
+        <span style={{ fontSize: 14 }} className='material-symbols-outlined'>
+          search
+        </span>
+        <button onClick={toggleDialog}>Close</button>
+      </div>
+    </dialog>
+  );
+});
+export default Dialog;
