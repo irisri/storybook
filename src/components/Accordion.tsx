@@ -47,7 +47,6 @@ const AccordionItem = ({ title, icon = false, description }: AccordionItmeType) 
 };
 
 const StyledDiv = styled.div`
-  font-family: Afacad Flux, Arial, sans-serif;
   display: flex;
   flex-direction: column;
   gap: 8px;
