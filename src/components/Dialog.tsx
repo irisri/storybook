@@ -1,19 +1,37 @@
 import { forwardRef, MouseEvent } from 'react';
-import * as MUIcon from '@mui/icons-material';
+import styled from '@emotion/styled';
+import { colors } from '../stories/colors';
+import { Button } from './Button';
+import { Icon, IconProps } from './Icon';
+
+const StyledDialog = styled.dialog`
+  border-radius: 4px;
+  border: 1px solid ${colors.getColor('Gray.800')};
+  padding: 0;
+`;
 
 type DialogType = {
   children: React.ReactNode;
   toggleDialog: () => void;
-  icon?: keyof typeof MUIcon;
+  icon?: IconProps['iconName'];
 };
 
+const StyledDialogContainer = styled.div`
+  margin: 16px;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+`;
+
+const StyledCustomContantContainer = styled.div`
+  margin: 4px 0;
+  align-self: center;
+`;
+
 export const Dialog = forwardRef<HTMLDialogElement, DialogType>(({ children, toggleDialog }, ref) => {
-  const onClick = () => {};
-
-  const Icon = MUIcon['Close'];
-
   return (
-    <dialog
+    <StyledDialog
       ref={ref}
       onClick={(event: MouseEvent<HTMLDialogElement>) => {
         console.log('event', event.currentTarget, event.target);
@@ -22,13 +40,12 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogType>(({ children, tog
         }
       }}
     >
-      <div>
-        {children}
-        <Icon />
+      <StyledDialogContainer>
+        <Button variant='secondary' iconName='Close' onClick={toggleDialog} />
 
-        <button onClick={toggleDialog}>Close</button>
-      </div>
-    </dialog>
+        <StyledCustomContantContainer>{children}</StyledCustomContantContainer>
+      </StyledDialogContainer>
+    </StyledDialog>
   );
 });
 export default Dialog;

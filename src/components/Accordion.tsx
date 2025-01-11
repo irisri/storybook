@@ -44,7 +44,7 @@ const AccordionItem = ({
   return (
     <StyledDetails name='accordion-item' key={title} onToggle={handleToggle} borderColor={borderColor}>
       <summary>
-        {icon ? <Icon size={14} icon={isOpen ? 'KeyboardArrowDown' : 'KeyboardArrowRight'} /> : null}
+        {icon ? <Icon size={14} iconName={isOpen ? 'KeyboardArrowDown' : 'KeyboardArrowRight'} /> : null}
         {title}
       </summary>
       <div>{description}</div>

@@ -16,6 +16,12 @@ export const fontSize: Record<Size, string> = {
   l: '16px',
 };
 
+export const iconSize: Record<Size, number> = {
+  s: 12,
+  m: 14,
+  l: 16,
+};
+
 export const buttonColor: Record<Variant, string> = {
   primary: colors.getColor('IridescentTurquoise.800'),
   secondary: colors.getColor('Purple.500'),

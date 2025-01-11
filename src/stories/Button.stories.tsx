@@ -52,3 +52,39 @@ export const Disable: Story = {
     );
   },
 };
+
+export const IconButtonVariants: Story = {
+  render: () => {
+    return (
+      <StyledDiv>
+        <Button variant='primary' iconName='Close' />
+        <Button variant='secondary' iconName='Close' />
+        <Button variant='warning' iconName='Close' />
+      </StyledDiv>
+    );
+  },
+};
+
+export const IconButtonSizes: Story = {
+  render: () => {
+    return (
+      <StyledDiv>
+        <Button variant='primary' iconName='Close' size='s' />
+        <Button variant='primary' iconName='Close' size='m' />
+        <Button variant='primary' iconName='Close' size='l' />
+      </StyledDiv>
+    );
+  },
+};
+
+export const IconButtonWithText: Story = {
+  render: () => {
+    return (
+      <StyledDiv>
+        <Button variant='primary' label='Primary' iconName='Close' />
+        <Button variant='secondary' label='Secondary' iconName='Close' />
+        <Button variant='warning' label='Warning' iconName='Close' />
+      </StyledDiv>
+    );
+  },
+};

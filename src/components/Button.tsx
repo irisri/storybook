@@ -2,7 +2,8 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { colors } from '../stories/colors';
-import { fontSize, padding, Size, Variant, buttonColor } from './button.type';
+import { fontSize, iconSize, padding, Size, Variant, buttonColor } from './button.type';
+import { IconProps, Icon } from './Icon';
 
 const disableStype = (disabled: boolean, variant: Variant) => {
   return (
@@ -52,6 +53,9 @@ const seconderyStype = (variant: Variant) => {
 
 const StyledButton = styled.button<{ size: Size; variant: Variant; disabled: boolean }>`
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
   height: fit-content;
   border-radius: 4px;
   padding: ${({ size }) => padding[size]};
@@ -75,15 +79,24 @@ const StyledButton = styled.button<{ size: Size; variant: Variant; disabled: boo
 export interface ButtonProps {
   variant?: Variant;
   size?: Size;
-  label: string;
+  label?: string;
   onClick?: () => void;
   disabled?: boolean;
+  iconName?: IconProps['iconName'];
 }
 
-export const Button = ({ variant = 'secondary', size = 'm', label, disabled = false, ...props }: ButtonProps) => {
+export const Button = ({
+  variant = 'secondary',
+  size = 'm',
+  label,
+  iconName,
+  disabled = false,
+  ...props
+}: ButtonProps) => {
   return (
     <StyledButton type='button' size={size} variant={variant} disabled={disabled} {...props}>
-      {label}
+      {iconName ? <Icon iconName={iconName} size={iconSize[size]} /> : null}
+      {label ? label : null}
     </StyledButton>
   );
 };
