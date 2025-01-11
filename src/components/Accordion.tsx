@@ -1,16 +1,18 @@
 import { useState, SyntheticEvent } from 'react';
 import { Icon } from './Icon';
 import styled from '@emotion/styled';
+import { colors, type Color } from '../stories/colors';
 
 type AccordionItmeType = {
   title: string;
   description: string;
   icon?: boolean;
+  color?: Color;
+  borderColor: Color;
 };
 
-const StyledDetails = styled.details`
-  border: 1px solid gray;
-  border-radius: 8px;
+const StyledDetails = styled.details<{ borderColor: Color }>`
+  border-bottom: 1px solid ${({ borderColor }) => borderColor};
 
   & summary {
     display: flex;
@@ -28,7 +30,7 @@ const StyledDetails = styled.details`
   }
 `;
 
-const AccordionItem = ({ title, icon = false, description }: AccordionItmeType) => {
+const AccordionItem = ({ title, icon = false, description, borderColor }: AccordionItmeType) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleToggle = (event: SyntheticEvent<HTMLDetailsElement>) => {
@@ -36,7 +38,7 @@ const AccordionItem = ({ title, icon = false, description }: AccordionItmeType) 
   };
 
   return (
-    <StyledDetails name='accordion-item' key={title} onToggle={handleToggle}>
+    <StyledDetails name='accordion-item' key={title} onToggle={handleToggle} borderColor={borderColor}>
       <summary>
         {icon ? <Icon size={14} icon={isOpen ? 'KeyboardArrowDown' : 'KeyboardArrowRight'} /> : null}
         {title}
@@ -46,21 +48,28 @@ const AccordionItem = ({ title, icon = false, description }: AccordionItmeType) 
   );
 };
 
-const StyledDiv = styled.div`
+const StyledDiv = styled.div<{ borderColor: Color }>`
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  border: 1px solid ${({ borderColor }) => borderColor};
+  border-radius: 4px;
+
+  details:last-child {
+    border-bottom: none;
+  }
 `;
 
 export type AccordionListType = {
   accordionList: AccordionItmeType[];
+  borderColor?: Color;
 };
 
-export const Accordion = ({ accordionList }: AccordionListType) => {
+export const Accordion = ({ accordionList, borderColor }: AccordionListType) => {
+  const defaultBorderColor = colors.getColor('Gray.800') as Color;
   return (
-    <StyledDiv>
+    <StyledDiv borderColor={borderColor ?? defaultBorderColor}>
       {accordionList.map((accordion: AccordionItmeType) => (
-        <AccordionItem key={accordion.title} {...accordion} />
+        <AccordionItem key={accordion.title} {...accordion} borderColor={borderColor ?? defaultBorderColor} />
       ))}
     </StyledDiv>
   );
