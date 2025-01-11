@@ -12,7 +12,7 @@ type NumberPalette = {
 };
 
 const grayPllater: NumberPalette = {
-  100: '#fafafa',
+  100: '#fff',
   200: '#e9e9ea',
   300: '#d9d9da',
   400: '#c8c8c9',
@@ -21,7 +21,7 @@ const grayPllater: NumberPalette = {
   700: '#858587',
   800: '#646465',
   900: '#424243',
-  1000: '#212121',
+  1000: '#000',
 };
 
 const purplePalette: NumberPalette = {
@@ -95,4 +95,8 @@ const getColor = (color: Color) => {
   return paletteNames[paletteName][paletteNembrt];
 };
 
-export const colors = { getColor };
+const getColorForPlatter = (palette: NamePalette) => {
+  return paletteNames[palette];
+};
+
+export const colors = { getColor, getColorForPlatter };

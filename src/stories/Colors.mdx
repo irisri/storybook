@@ -1,33 +1,17 @@
 import { Meta } from '@storybook/blocks';
 import { ColorPalette, ColorItem } from '@storybook/blocks';
-import { grayPllater, purplePalette, greenPalette, redPalette, iridescentTurquoisePalette } from './colors.ts'
+import { colors } from './colors.ts';
 
-<Meta title="Colors" />
+<Meta title='Colors' />
 
 <ColorPalette>
+  <ColorItem title='theme.color.greyscale' subtitle='main color is 500' colors={colors.getColorForPlatter('Gray')} />
+  <ColorItem title='theme.color.purplescale' subtitle='main is 500' colors={colors.getColorForPlatter('Purple')} />
+  <ColorItem title='theme.color.greenPalette' subtitle='main is 500' colors={colors.getColorForPlatter('Green')} />
+  <ColorItem title='theme.color.redscale' subtitle='main is 500' colors={colors.getColorForPlatter('Red')} />
   <ColorItem
-    title="theme.color.greyscale"
-    subtitle="main color is 500"
-    colors={grayPllater}
-  />
-  <ColorItem 
-    title="theme.color.purplescale" 
-    subtitle="main is 500" 
-    colors={purplePalette} 
-  />
-  <ColorItem 
-    title="theme.color.greenPalette" 
-    subtitle="main is 500" 
-    colors={greenPalette} 
-  />
-  <ColorItem
-    title="theme.color.redscale"
-    subtitle="main is 500"
-    colors={redPalette}
-  />
-    <ColorItem
-    title="theme.color.iridescentTurquoise"
-    subtitle="main is 500"
-    colors={iridescentTurquoisePalette}
+    title='theme.color.iridescentTurquoise'
+    subtitle='main is 500'
+    colors={colors.getColorForPlatter('IridescentTurquoise')}
   />
 </ColorPalette>

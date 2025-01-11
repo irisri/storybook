@@ -8,7 +8,6 @@ type AccordionItmeType = {
   description: string;
   icon?: boolean;
   color?: Color;
-  borderColor: Color;
 };
 
 const StyledDetails = styled.details<{ borderColor: Color }>`
@@ -30,7 +29,12 @@ const StyledDetails = styled.details<{ borderColor: Color }>`
   }
 `;
 
-const AccordionItem = ({ title, icon = false, description, borderColor }: AccordionItmeType) => {
+const AccordionItem = ({
+  title,
+  icon = false,
+  description,
+  borderColor,
+}: AccordionItmeType & { borderColor: Color }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleToggle = (event: SyntheticEvent<HTMLDetailsElement>) => {
