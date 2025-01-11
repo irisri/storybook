@@ -25,9 +25,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogType>(({ children, tog
       <div>
         {children}
         <Icon />
-        <span style={{ fontSize: 14 }} className='material-symbols-outlined'>
-          search
-        </span>
+
         <button onClick={toggleDialog}>Close</button>
       </div>
     </dialog>

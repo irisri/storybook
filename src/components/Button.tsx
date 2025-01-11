@@ -81,7 +81,6 @@ export interface ButtonProps {
 }
 
 export const Button = ({ variant = 'secondary', size = 'm', label, disabled = false, ...props }: ButtonProps) => {
-  console.log(disabled);
   return (
     <StyledButton type='button' size={size} variant={variant} disabled={disabled} {...props}>
       {label}

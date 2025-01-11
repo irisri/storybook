@@ -2,6 +2,8 @@ import styled from '@emotion/styled';
 import { Button } from '../components/Button';
 import type { Meta, StoryObj } from '@storybook/react';
 
+const onClick = () => console.log('click');
+
 const StyledDiv = styled.div`
   display: flex;
   gap: 4px;
@@ -19,9 +21,9 @@ export const Variants: Story = {
   render: () => {
     return (
       <StyledDiv>
-        <Button variant='primary' label='Primary' />
-        <Button variant='secondary' label='Secondary' />
-        <Button variant='warning' label='Warning' />
+        <Button variant='primary' label='Primary' onClick={onClick} />
+        <Button variant='secondary' label='Secondary' onClick={onClick} />
+        <Button variant='warning' label='Warning' onClick={onClick} />
       </StyledDiv>
     );
   },
@@ -31,9 +33,9 @@ export const Sizes: Story = {
   render: () => {
     return (
       <StyledDiv>
-        <Button size='l' label='Large' />
-        <Button size='m' label='Medium' />
-        <Button size='s' label='Small' />
+        <Button size='l' label='Large' onClick={onClick} />
+        <Button size='m' label='Medium' onClick={onClick} />
+        <Button size='s' label='Small' onClick={onClick} />
       </StyledDiv>
     );
   },
