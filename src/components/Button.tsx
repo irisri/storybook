@@ -1,7 +1,7 @@
 import React from 'react';
 
 import styled from '@emotion/styled';
-import { grayPllater, iridescentTurquoisePalette } from '../stories/colors';
+import { colors } from '../stories/colors';
 
 const StyledButton = styled.button`
   border-radius: 8px;
@@ -9,9 +9,9 @@ const StyledButton = styled.button`
   font-family: Afacad Flux, Arial, sans-serif;
   font-size: 14px;
   font-weight: 600;
-  background-color: ${grayPllater[100]};
-  color: ${iridescentTurquoisePalette[800]};
-  border: 1px solid ${iridescentTurquoisePalette[800]};
+  background-color: ${colors.getColor('Gray.100')};
+  color: ${colors.getColor('IridescentTurquoise.800')};
+  border: 1px solid ${colors.getColor('IridescentTurquoise.800')};
 `;
 
 export interface ButtonProps {
