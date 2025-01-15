@@ -2,11 +2,11 @@ import { forwardRef, MouseEvent } from 'react';
 import styled from '@emotion/styled';
 import { colors } from '../stories/colors';
 import { Button } from './Button';
-import { Icon, IconProps } from './Icon';
+import { IconProps } from './Icon';
 
 const StyledDialog = styled.dialog`
   border-radius: 4px;
-  border: 1px solid ${colors.getColor('Gray.800')};
+  border: 1px solid ${colors.getColor('Gray.400')};
   padding: 0;
 `;
 
@@ -18,6 +18,7 @@ type DialogType = {
 
 const StyledDialogContainer = styled.div`
   margin: 16px;
+  margin-bottom: 38px;
   min-width: 300px;
   display: flex;
   flex-direction: column;
@@ -41,7 +42,7 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogType>(({ children, tog
       }}
     >
       <StyledDialogContainer>
-        <Button variant='secondary' iconName='Close' onClick={toggleDialog} />
+        <Button variant='secondary' iconName={'Close'} onClick={toggleDialog} />
 
         <StyledCustomContantContainer>{children}</StyledCustomContantContainer>
       </StyledDialogContainer>
