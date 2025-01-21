@@ -1,25 +1,19 @@
-import { useRef } from 'react';
+import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Dialog } from '../components/Dialog';
+import { Modal } from '../components/Dialog';
 import { Button } from '../components/Button';
 
-const meta: Meta<typeof Dialog> = {
-  title: 'Components/Dialog',
-  component: Dialog,
+const meta: Meta<typeof Modal> = {
+  title: 'Components/Modal',
+  component: Modal,
 };
 
 export default meta;
-type Story = StoryObj<typeof Dialog>;
+type Story = StoryObj<typeof Modal>;
 
 export const ExampleStory: Story = {
   render: ({ ...args }) => {
-    const dialogRef = useRef<HTMLDialogElement>(null);
-
-    const toggleDialog = () => {
-      if (!dialogRef.current) return;
-
-      dialogRef.current.hasAttribute('open') ? dialogRef.current.close() : dialogRef.current.showModal();
-    };
+    const [isOpen, setIsOpen] = useState(false);
 
     return (
       <div
@@ -28,10 +22,10 @@ export const ExampleStory: Story = {
           height: '100%',
         }}
       >
-        <Button variant={'primary'} size={'m'} onClick={toggleDialog} label='Click' />
-        <Dialog ref={dialogRef} toggleDialog={toggleDialog}>
+        <Button variant={'primary'} size={'m'} onClick={() => setIsOpen(true)} label='Click' />
+        <Modal open={isOpen}>
           <h2>hihihihihihi</h2>
-        </Dialog>
+        </Modal>
       </div>
     );
   },

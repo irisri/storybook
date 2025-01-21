@@ -1,4 +1,4 @@
-import { forwardRef, MouseEvent } from 'react';
+import { forwardRef, MouseEvent, useEffect, useRef } from 'react';
 import styled from '@emotion/styled';
 import { colors } from '../stories/colors';
 import { Button } from './Button';
@@ -8,11 +8,15 @@ const StyledDialog = styled.dialog`
   border-radius: 4px;
   border: 1px solid ${colors.getColor('Gray.400')};
   padding: 0;
+  ::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
 `;
 
 type DialogType = {
   children: React.ReactNode;
-  toggleDialog: () => void;
+  closeDialog: () => void;
+  shouldCloseDialod?: (event: MouseEvent<HTMLDialogElement>) => void;
   icon?: IconProps['iconName'];
 };
 
@@ -30,23 +34,50 @@ const StyledCustomContantContainer = styled.div`
   align-self: center;
 `;
 
-export const Dialog = forwardRef<HTMLDialogElement, DialogType>(({ children, toggleDialog }, ref) => {
+const ModalDialog = forwardRef<HTMLDialogElement, DialogType>(({ children, closeDialog, shouldCloseDialod }, ref) => {
   return (
-    <StyledDialog
-      ref={ref}
-      onClick={(event: MouseEvent<HTMLDialogElement>) => {
-        console.log('event', event.currentTarget, event.target);
-        if (event.currentTarget === event.target) {
-          toggleDialog();
-        }
-      }}
-    >
+    <StyledDialog ref={ref} onClose={closeDialog} onClick={shouldCloseDialod}>
       <StyledDialogContainer>
-        <Button variant='secondary' iconName={'Close'} onClick={toggleDialog} />
-
+        <Button variant='secondary' iconName={'Close'} onClick={closeDialog} />
         <StyledCustomContantContainer>{children}</StyledCustomContantContainer>
       </StyledDialogContainer>
     </StyledDialog>
   );
 });
-export default Dialog;
+
+export const Modal = ({ open, children }: { open: boolean; children: React.ReactNode }) => {
+  const dialogRef = useRef<HTMLDialogElement>(null);
+
+  useEffect(() => {
+    if (open && dialogRef.current) dialogRef.current.showModal();
+  }, [open]);
+
+  const shouldCloseDialod = (event: MouseEvent<HTMLDialogElement>) => {
+    if (!dialogRef.current) return;
+
+    const dialogDimensions = dialogRef.current.getBoundingClientRect();
+
+    if (
+      event.clientX < dialogDimensions.left ||
+      event.clientX > dialogDimensions.right ||
+      event.clientY < dialogDimensions.top ||
+      event.clientY > dialogDimensions.bottom
+    ) {
+      closeDialog();
+    }
+  };
+
+  const closeDialog = () => {
+    if (!dialogRef.current) return;
+
+    dialogRef.current.close();
+  };
+
+  return (
+    <>
+      <ModalDialog ref={dialogRef} closeDialog={closeDialog} shouldCloseDialod={shouldCloseDialod}>
+        {children}
+      </ModalDialog>
+    </>
+  );
+};

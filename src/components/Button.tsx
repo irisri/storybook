@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEvent } from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { colors } from '../stories/colors';
@@ -80,7 +80,7 @@ export interface ButtonProps {
   variant?: Variant;
   size?: Size;
   label?: string;
-  onClick?: () => void;
+  onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
   disabled?: boolean;
   iconName?: IconProps['iconName'];
 }
