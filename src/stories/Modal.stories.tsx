@@ -23,7 +23,7 @@ export const ExampleStory: Story = {
         }}
       >
         <Button variant={'primary'} size={'m'} onClick={() => setIsOpen(true)} label='Click' />
-        <Modal open={isOpen}>
+        <Modal open={isOpen} setIsOpen={setIsOpen}>
           <h2>hihihihihihi</h2>
         </Modal>
       </div>

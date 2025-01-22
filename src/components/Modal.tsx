@@ -45,11 +45,20 @@ const ModalDialog = forwardRef<HTMLDialogElement, DialogType>(({ children, close
   );
 });
 
-export const Modal = ({ open, children }: { open: boolean; children: React.ReactNode }) => {
+export const Modal = ({
+  open,
+  children,
+  setIsOpen,
+}: {
+  open: boolean;
+  setIsOpen: (value: boolean) => void;
+  children: React.ReactNode;
+}) => {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
-    if (open && dialogRef.current) dialogRef.current.showModal();
+    if (!dialogRef.current) return;
+    open ? dialogRef.current.showModal() : dialogRef.current.close();
   }, [open]);
 
   const shouldCloseDialod = (event: MouseEvent<HTMLDialogElement>) => {
@@ -63,14 +72,12 @@ export const Modal = ({ open, children }: { open: boolean; children: React.React
       event.clientY < dialogDimensions.top ||
       event.clientY > dialogDimensions.bottom
     ) {
-      closeDialog();
+      setIsOpen(false);
     }
   };
 
   const closeDialog = () => {
-    if (!dialogRef.current) return;
-
-    dialogRef.current.close();
+    setIsOpen(false);
   };
 
   return (
