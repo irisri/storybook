@@ -1,4 +1,4 @@
-import { colors } from '../stories/colors';
+import { colors } from './colors';
 
 export type Size = 's' | 'm' | 'l';
 

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { Modal } from '../components/Modal';
 import { Button } from '../components/Button';
+import { Text } from '../components/Text';
 import styled from '@emotion/styled';
 
 const StyledDiv = styled.div`
@@ -25,7 +26,7 @@ export const Basic: Story = {
       <StyledDiv>
         <Button variant={'primary'} size={'m'} onClick={() => setIsOpen(true)} label='Click' />
         <Modal open={isOpen} setIsOpen={setIsOpen}>
-          <h2>hihihihihihi</h2>
+          <Text variant='h2'>hihihihihihi</Text>
         </Modal>
       </StyledDiv>
     );

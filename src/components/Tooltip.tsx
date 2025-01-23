@@ -1,7 +1,8 @@
 import { forwardRef, useRef, useEffect } from 'react';
 import styled from '@emotion/styled';
 import { css, SerializedStyles } from '@emotion/react';
-import { colors } from '../stories/colors';
+import { colors } from './colors';
+import { Text } from './Text';
 
 const bottomStype = () => {
   return css`
@@ -67,7 +68,9 @@ type TooltipDialogType = Omit<TooltipType, 'open' | 'position'> & {
 const TooltipDialog = forwardRef<HTMLDialogElement, TooltipDialogType>(({ text, position }, ref) => {
   return (
     <StyledDialog ref={ref} position={position}>
-      {text}
+      <Text variant='span' color='Gray.100'>
+        {text}
+      </Text>
     </StyledDialog>
   );
 });

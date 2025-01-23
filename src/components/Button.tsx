@@ -1,7 +1,7 @@
 import React, { MouseEvent } from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
-import { colors } from '../stories/colors';
+import { colors } from './colors';
 import { fontSize, iconSize, padding, Size, Variant, buttonColor } from './button.type';
 import { IconProps, Icon } from './Icon';
 

@@ -1,7 +1,8 @@
 import { useState, SyntheticEvent } from 'react';
 import { Icon } from './Icon';
+import { Text } from './Text';
 import styled from '@emotion/styled';
-import { colors, type Color } from '../stories/colors';
+import { colors, type Color } from './colors';
 
 type AccordionItmeType = {
   title: string;
@@ -45,7 +46,9 @@ const AccordionItem = ({
     <StyledDetails name='accordion-item' key={title} onToggle={handleToggle} borderColor={borderColor}>
       <summary>
         {icon ? <Icon size={14} iconName={isOpen ? 'KeyboardArrowDown' : 'KeyboardArrowRight'} /> : null}
-        {title}
+        <Text variant='p' fontWeight={700}>
+          {title}
+        </Text>
       </summary>
       <div>{description}</div>
     </StyledDetails>

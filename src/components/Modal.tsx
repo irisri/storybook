@@ -1,6 +1,6 @@
 import { forwardRef, MouseEvent, useEffect, useRef } from 'react';
 import styled from '@emotion/styled';
-import { colors } from '../stories/colors';
+import { colors } from './colors';
 import { Button } from './Button';
 import { IconProps } from './Icon';
 

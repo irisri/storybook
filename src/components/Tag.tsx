@@ -1,7 +1,8 @@
 import styled from '@emotion/styled';
-import { colors } from '../stories/colors';
+import { colors } from './colors';
 import { IconProps } from './Icon';
 import { Button } from './Button';
+import { Text } from './Text';
 
 const StyledDiv = styled.div<{ iconName?: string }>`
   display: flex;
@@ -11,7 +12,6 @@ const StyledDiv = styled.div<{ iconName?: string }>`
   border-radius: 4px;
   background-color: ${colors.getColor('IridescentTurquoise.800')};
   transition: 0.13s ease-out;
-  color: ${colors.getColor('Gray.100')};
   & button:hover {
     box-shadow: none;
   }
@@ -26,7 +26,9 @@ export type TagType = {
 export const Tag = ({ text, iconName, onClick }: TagType) => {
   return (
     <StyledDiv iconName={iconName}>
-      {text}
+      <Text variant='span' color='Gray.100'>
+        {text}
+      </Text>
       {iconName ? <Button variant='primary' iconName={iconName} onClick={onClick} /> : null}
     </StyledDiv>
   );

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Icon, type IconProps } from '../components/Icon';
 import styled from '@emotion/styled';
-import { colors } from './colors';
+import { colors } from '../components/colors';
 
 const StyledDiv = styled.div`
   display: flex;
