@@ -3,8 +3,8 @@ import { css, SerializedStyles } from '@emotion/react';
 import { colors, type Color } from './colors';
 
 type TextStyleType = {
-  color: Color;
-  fontWeight: number;
+  color?: Color;
+  fontWeight?: number;
 };
 
 const generalTextStyle: ({ color, fontWeight }: TextStyleType) => SerializedStyles = ({
@@ -15,8 +15,8 @@ const generalTextStyle: ({ color, fontWeight }: TextStyleType) => SerializedStyl
     font-family: Afacad Flux, Arial, sans-serif;
     padding: 0;
     margin: 0;
-    color: ${colors.getColor(color)};
-    font-weight: ${fontWeight};
+    color: ${color ? colors.getColor(color) : 'inherit'};
+    font-weight: ${fontWeight ?? 500};
   `;
 };
 
@@ -57,11 +57,7 @@ const getText: Record<TextVariant, React.ElementType> = {
   h1: StyledH1,
 };
 
-export const Text = ({ children, variant = 'p', color = 'Gray.1000', fontWeight = 500 }: TextType) => {
+export const Text = ({ children, variant = 'p', ...props }: TextType) => {
   const Component = getText[variant];
-  return (
-    <Component color={color} fontWeight={fontWeight}>
-      {children}
-    </Component>
-  );
+  return <Component {...props}>{children}</Component>;
 };
