@@ -1,6 +1,7 @@
 import { useState, SyntheticEvent } from 'react';
 import { Icon } from './Icon';
 import { Text } from './Text';
+import { Flex } from './Flex';
 import styled from '@emotion/styled';
 import { colors, type Color } from './colors';
 
@@ -13,6 +14,7 @@ type AccordionItmeType = {
 
 const StyledDetails = styled.details<{ borderColor: Color }>`
   border-bottom: 1px solid ${({ borderColor }) => borderColor};
+  width: 100%;
 
   & summary {
     display: flex;
@@ -55,9 +57,7 @@ const AccordionItem = ({
   );
 };
 
-const StyledDiv = styled.div<{ borderColor: Color }>`
-  display: flex;
-  flex-direction: column;
+const StyledDiv = styled(Flex)<{ borderColor: Color }>`
   border: 1px solid ${({ borderColor }) => borderColor};
   border-radius: 4px;
 
@@ -74,7 +74,7 @@ export type AccordionListType = {
 export const Accordion = ({ accordionList, borderColor }: AccordionListType) => {
   const defaultBorderColor = colors.getColor('Gray.800') as Color;
   return (
-    <StyledDiv borderColor={borderColor ?? defaultBorderColor}>
+    <StyledDiv borderColor={borderColor ?? defaultBorderColor} flexDirection='column'>
       {accordionList.map((accordion: AccordionItmeType) => (
         <AccordionItem key={accordion.title} {...accordion} borderColor={borderColor ?? defaultBorderColor} />
       ))}

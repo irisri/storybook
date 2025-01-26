@@ -4,7 +4,7 @@ import { Color, colors } from './colors';
 type FlexDivType = {
   width?: string;
   height?: string;
-  gap?: number;
+  gap: number;
   flexDirection?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
   wrap?: 'nowrap' | 'wrap' | 'wrap-reverse';
   justifyContent?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around ';
@@ -23,7 +23,7 @@ const StyledDiv = styled.div<FlexDivType>`
   height: ${({ height }) => height ?? '100%'};
   row-gap: ${({ rowGap }) => (rowGap ? `${rowGap}px` : '4px')};
   column-gap: ${({ columnGap }) => (columnGap ? `${columnGap}px` : '4px')};
-  gap: ${({ gap }) => (gap ? `${gap}px` : '4px')};
+  gap: ${({ gap }) => `${gap}px`};
   flex-direction: ${({ flexDirection }) => flexDirection ?? 'row'};
   flex-wrap: ${({ wrap }) => wrap ?? 'wrap'};
   justify-content: ${({ justifyContent }) => justifyContent ?? 'flex-start'};
@@ -34,10 +34,15 @@ const StyledDiv = styled.div<FlexDivType>`
   color: ${({ color }) => (color ? colors.getColor(color) : 'inherit')};
 `;
 
-type FlexTyle = FlexDivType & {
+type FlexTyle = Omit<FlexDivType, 'gap'> & {
   children: React.ReactNode;
+  gap?: number;
 };
 
-export const Flex = ({ children, ...props }: FlexTyle) => {
-  return <StyledDiv {...props}>{children}</StyledDiv>;
+export const Flex = ({ children, gap = 4, ...props }: FlexTyle) => {
+  return (
+    <StyledDiv {...props} gap={gap}>
+      {children}
+    </StyledDiv>
+  );
 };

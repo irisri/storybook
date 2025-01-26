@@ -3,11 +3,9 @@ import { colors } from './colors';
 import { IconProps } from './Icon';
 import { Button } from './Button';
 import { Text } from './Text';
+import { Flex } from './Flex';
 
-const StyledDiv = styled.div<{ iconName?: string }>`
-  display: flex;
-  align-items: center;
-  width: fit-content;
+const StyledDiv = styled(Flex)<{ iconName?: string }>`
   padding: ${({ iconName }) => (iconName ? '4px 4px 4px 10px' : '4px 10px')};
   border-radius: 4px;
   background-color: ${colors.getColor('IridescentTurquoise.800')};
@@ -25,7 +23,7 @@ export type TagType = {
 
 export const Tag = ({ text, iconName, onClick }: TagType) => {
   return (
-    <StyledDiv iconName={iconName}>
+    <StyledDiv iconName={iconName} alignItems='center' width='fit-content' gap={0}>
       <Text variant='span' color='Gray.100'>
         {text}
       </Text>
