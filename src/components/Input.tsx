@@ -20,7 +20,7 @@ const StyledInput = styled.input`
   background-color: ${colors.getColor('Gray.200')};
   color: ${colors.getColor('Gray.1000')};
   ::placeholder {
-    color: ${colors.getColor('Gray.500')};
+    color: ${colors.getColor('Gray.900')};
   }
 `;
 
