@@ -2,17 +2,9 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Icon, type IconProps } from '../components/Icon';
 import styled from '@emotion/styled';
 import { colors } from '../components/colors';
+import { Flex } from '../components/Flex';
 
-const StyledDiv = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-`;
-
-const StyledIconContaner = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+const StyledIconContaner = styled(Flex)`
   padding: 8px;
   border: 1px solid ${colors.getColor('Gray.500')};
   border-radius: 4px;
@@ -41,16 +33,16 @@ export const AllIcons: Story = {
     ] as IconProps['iconName'][];
 
     return (
-      <StyledDiv>
+      <Flex gap={8}>
         {iconNames.map((iconName) => {
           return (
-            <StyledIconContaner key={iconName}>
+            <StyledIconContaner flexDirection='column' alignItems='center' width='fit-content' key={iconName}>
               <Icon iconName={iconName} size={20} />
               {iconName}
             </StyledIconContaner>
           );
         })}
-      </StyledDiv>
+      </Flex>
     );
   },
 };

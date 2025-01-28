@@ -19,8 +19,8 @@ type FlexDivType = {
 
 const StyledDiv = styled.div<FlexDivType>`
   display: flex;
-  width: ${({ width }) => width ?? '100%'};
-  height: ${({ height }) => height ?? '100%'};
+  width: ${({ width }) => width ?? 'auto'};
+  height: ${({ height }) => height ?? 'auto'};
   row-gap: ${({ rowGap }) => (rowGap ? `${rowGap}px` : '4px')};
   column-gap: ${({ columnGap }) => (columnGap ? `${columnGap}px` : '4px')};
   gap: ${({ gap }) => `${gap}px`};
