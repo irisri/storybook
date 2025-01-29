@@ -15,6 +15,8 @@ type FlexDivType = {
   columnGap?: number;
   color?: Color;
   background?: Color;
+  padding?: string;
+  margin?: string;
 };
 
 const StyledDiv = styled.div<FlexDivType>`
@@ -32,6 +34,8 @@ const StyledDiv = styled.div<FlexDivType>`
   flex-grow: ${({ grow }) => grow ?? 1};
   background: ${({ background }) => (background ? colors.getColor(background) : 'inherit')};
   color: ${({ color }) => (color ? colors.getColor(color) : 'inherit')};
+  padding: ${({ padding }) => padding ?? '0'};
+  margin: ${({ margin }) => margin ?? '0'};
 `;
 
 type FlexTyle = Omit<FlexDivType, 'gap'> & {
