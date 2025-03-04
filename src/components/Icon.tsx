@@ -1,4 +1,3 @@
-import styled from '@emotion/styled';
 import * as MUIcon from '@mui/icons-material';
 import { Color, colors } from './colors';
 
@@ -10,7 +9,7 @@ export type IconType = {
   color: Color;
 };
 
-const MatirialIcon = ({ iconName: icon, size, color }: IconType) => {
+const MaterialIcon = ({ iconName: icon, size, color }: IconType) => {
   const Icon = MUIcon[icon];
 
   const style = {
@@ -28,5 +27,5 @@ export type IconProps = {
 };
 
 export const Icon = ({ iconName: icon, size = 12, color = 'Gray.1000' }: IconProps) => {
-  return <MatirialIcon iconName={icon} size={size} color={color} />;
+  return <MaterialIcon iconName={icon} size={size} color={color} />;
 };
