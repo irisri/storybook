@@ -12,76 +12,76 @@ type NumberPalette = {
 };
 
 const grayPllater: NumberPalette = {
-  100: '#fff',
-  200: '#e9e9ea',
-  300: '#d9d9da',
-  400: '#c8c8c9',
-  500: '#b7b7b9',
-  600: '#A7A7A9',
-  700: '#858587',
-  800: '#646465',
-  900: '#424243',
-  1000: '#000',
-};
-
-const purplePalette: NumberPalette = {
-  100: '#f4f3f3',
-  200: '#cdc7c9',
-  300: '#a69a9e',
-  400: '#7f6e74',
-  500: '#584249',
-  600: '#32161F',
-  700: '#281118',
-  800: '#1e0d12',
-  900: '#14080c',
-  1000: '#090406',
+  100: '#FFFFFF',
+  200: '#F9FAFB',
+  300: '#F3F4F6',
+  400: '#E5E7EB',
+  500: '#D1D5DB',
+  600: '#9CA3AF',
+  700: '#6B7280',
+  800: '#4B5563',
+  900: '#1F2937',
+  1000: '#000000',
 };
 
 const greenPalette: NumberPalette = {
-  100: '#f5f7f7',
-  200: '#cfd8d9',
-  300: '#aababc',
-  400: '#859c9e',
-  500: '#607e81',
-  600: '#3B6064',
-  700: '#2f4c50',
-  800: '#23393c',
-  900: '#172628',
-  1000: '#0b1313',
+  100: '#ECFDF5',
+  200: '#D1FAE5',
+  300: '#A7F3D0',
+  400: '#6EE7B7',
+  500: '#34D399',
+  600: '#10B981',
+  700: '#059669',
+  800: '#047857',
+  900: '#065F46',
+  1000: '#064E3B',
 };
 
 const redPalette: NumberPalette = {
-  100: '#fef4f5',
-  200: '#fdced0',
-  300: '#fba7ab',
-  400: '#fa8086',
-  500: '#f95961',
-  600: '#F8333C',
-  700: '#c62830',
-  800: '#941e24',
-  900: '#631418',
-  1000: '#310a0b',
+  100: '#FEF2F2',
+  200: '#FEE2E2',
+  300: '#FECACA',
+  400: '#FCA5A5',
+  500: '#F87171',
+  600: '#EF4444',
+  700: '#DC2626',
+  800: '#B91C1C',
+  900: '#991B1B',
+  1000: '#7F1D1D',
 };
 
-const iridescentTurquoisePalette: NumberPalette = {
-  100: '#f8fffc',
-  200: '#dffff0',
-  300: '#c6ffe5',
-  400: '#adffda',
-  500: '#94ffcf',
-  600: '#7CFFC4',
-  700: '#63cc9c',
-  800: '#4a9975',
-  900: '#31664e',
-  1000: '#183227',
+const yellowPalette: NumberPalette = {
+  100: '#FFFBEB',
+  200: '#FEF3C7',
+  300: '#FDE68A',
+  400: '#FCD34D',
+  500: '#FBBF24',
+  600: '#F59E0B',
+  700: '#D97706',
+  800: '#B45309',
+  900: '#92400E',
+  1000: '#78350F',
+};
+
+const purplePalette: NumberPalette = {
+  100: '#FAF5FF',
+  200: '#F3E8FF',
+  300: '#E9D5FF',
+  400: '#D8B4FE',
+  500: '#C084FC',
+  600: '#A855F7',
+  700: '#9333EA',
+  800: '#7E22CE',
+  900: '#6B21A8',
+  1000: '#581C87',
 };
 
 const paletteNames = {
   Gray: grayPllater,
   Red: redPalette,
-  IridescentTurquoise: iridescentTurquoisePalette,
   Purple: purplePalette,
   Green: greenPalette,
+  Yellow: yellowPalette,
 };
 
 type NamePalette = keyof typeof paletteNames;

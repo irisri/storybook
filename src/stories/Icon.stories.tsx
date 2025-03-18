@@ -21,15 +21,17 @@ type Story = StoryObj<typeof Icon>;
 export const AllIcons: Story = {
   render: () => {
     const iconNames = [
-      'DeleteOutline',
-      'RemoveCircleOutline',
-      'KeyboardArrowDown',
-      'KeyboardArrowUp',
-      'KeyboardArrowRight',
-      'KeyboardArrowLeft',
-      'ModeEdit',
-      'FilterAlt',
-      'Close',
+      'trash',
+      'xmark',
+      'arrow-down',
+      'arrow-up',
+      'arrow-right',
+      'arrow-left',
+      'edit',
+      'filter',
+      'star',
+      ['fab', 'youtube'],
+      ['far', 'bell'],
     ] as IconProps['iconName'][];
 
     return (
@@ -37,7 +39,7 @@ export const AllIcons: Story = {
         {iconNames.map((iconName) => {
           return (
             <StyledIconContaner flexDirection='column' alignItems='center' width='fit-content' key={iconName}>
-              <Icon iconName={iconName} size={20} />
+              <Icon iconName={iconName} size={'xl'} />
               {iconName}
             </StyledIconContaner>
           );

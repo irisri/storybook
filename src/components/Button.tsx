@@ -1,8 +1,8 @@
-import React, { MouseEvent } from 'react';
+import { MouseEvent } from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { colors } from './colors';
-import { fontSize, iconSize, padding, Size, Variant, buttonColor } from './button.type';
+import { fontSize, iconSize, padding, Size, Variant, buttonColor, colorForIcon } from './button.type';
 import { IconProps, Icon } from './Icon';
 
 const disableStype = (disabled: boolean, variant: Variant) => {
@@ -95,7 +95,7 @@ export const Button = ({
 }: ButtonProps) => {
   return (
     <StyledButton type='button' size={size} variant={variant} disabled={disabled} {...props}>
-      {iconName ? <Icon iconName={iconName} size={iconSize[size]} /> : null}
+      {iconName ? <Icon iconName={iconName} size={iconSize[size]} color={colorForIcon[variant]} /> : null}
       {label ? label : null}
     </StyledButton>
   );

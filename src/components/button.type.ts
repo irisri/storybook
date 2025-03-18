@@ -1,4 +1,4 @@
-import { colors } from './colors';
+import { colors, Color } from './colors';
 
 export type Size = 's' | 'm' | 'l';
 
@@ -23,7 +23,13 @@ export const iconSize: Record<Size, number> = {
 };
 
 export const buttonColor: Record<Variant, string> = {
-  primary: colors.getColor('IridescentTurquoise.800'),
+  primary: colors.getColor('Green.800'),
   secondary: colors.getColor('Purple.500'),
   warning: colors.getColor('Red.600'),
+};
+
+export const colorForIcon: Record<Variant, Color> = {
+  primary: 'Gray.100',
+  warning: 'Gray.100',
+  secondary: 'Purple.500',
 };
