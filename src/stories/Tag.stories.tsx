@@ -14,5 +14,5 @@ export const Basic: Story = {
 };
 
 export const WithIcon: Story = {
-  args: { text: 'User', iconName: 'Person', onClick: () => console.log('click on tag') },
+  args: { text: 'User', iconName: 'user', onClick: () => console.log('click on tag') },
 };

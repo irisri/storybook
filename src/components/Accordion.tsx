@@ -20,6 +20,7 @@ const StyledDetails = styled.details<{ borderColor: Color }>`
     display: flex;
     align-items: center;
     padding: 12px 8px;
+    gap: 4px;
 
     ::marker {
       content: '';
@@ -47,7 +48,7 @@ const AccordionItem = ({
   return (
     <StyledDetails name='accordion-item' key={title} onToggle={handleToggle} borderColor={borderColor}>
       <summary>
-        {icon ? <Icon size={14} iconName={isOpen ? 'KeyboardArrowDown' : 'KeyboardArrowRight'} /> : null}
+        {icon ? <Icon size={'sm'} iconName={isOpen ? 'arrow-down' : 'arrow-right'} /> : null}
         <Text variant='p' fontWeight={700}>
           {title}
         </Text>

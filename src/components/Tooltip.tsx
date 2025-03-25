@@ -49,7 +49,7 @@ const StyledDialog = styled.dialog<{ position: TooltipPositionType }>`
   border: none;
   outline: none;
   padding: 4px 8px;
-  background-color: ${colors.getColor('Gray.500')};
+  background-color: ${colors.getColor('Gray.600')};
   color: ${colors.getColor('Gray.100')};
   position: absolute;
   ${({ position }) => styleMap[position]()};

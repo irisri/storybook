@@ -37,7 +37,7 @@ export const Input = ({ placeHolder, value, onChange, iconName }: InputType) => 
   };
   return (
     <StyledFlex wrap='nowrap' alignItems='center'>
-      {iconName ? <Icon iconName={iconName} color={'Gray.1000'} /> : null}
+      {iconName ? <Icon iconName={iconName} color={'Gray.1000'} size='xs' /> : null}
       <StyledInput value={value} placeholder={placeHolder} onChange={onChangeInput} />
     </StyledFlex>
   );

@@ -5,10 +5,10 @@ import { Button } from './Button';
 import { Text } from './Text';
 import { Flex } from './Flex';
 
-const StyledDiv = styled(Flex)<{ iconName?: string }>`
+const StyledDiv = styled(Flex)<{ iconName?: IconProps['iconName'] }>`
   padding: ${({ iconName }) => (iconName ? '4px 4px 4px 10px' : '4px 10px')};
   border-radius: 4px;
-  background-color: ${colors.getColor('IridescentTurquoise.800')};
+  background-color: ${colors.getColor('Green.800')};
   transition: 0.13s ease-out;
   & button:hover {
     box-shadow: none;

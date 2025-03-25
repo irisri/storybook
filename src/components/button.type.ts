@@ -1,4 +1,5 @@
 import { colors, Color } from './colors';
+import { IconProps } from './Icon';
 
 export type Size = 's' | 'm' | 'l';
 
@@ -16,10 +17,10 @@ export const fontSize: Record<Size, string> = {
   l: '16px',
 };
 
-export const iconSize: Record<Size, number> = {
-  s: 12,
-  m: 14,
-  l: 16,
+export const iconSize: Record<Size, IconProps['size']> = {
+  s: 'xs',
+  m: 'sm',
+  l: 'lg',
 };
 
 export const buttonColor: Record<Variant, string> = {

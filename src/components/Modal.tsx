@@ -35,7 +35,7 @@ const ModalDialog = forwardRef<HTMLDialogElement, DialogType>(({ children, close
   return (
     <StyledDialog ref={ref} onClose={closeDialog} onClick={shouldCloseDialod}>
       <StyledDialogContainer flexDirection='column' alignItems='flex-end' width='375px'>
-        <Button variant='secondary' iconName={'Close'} onClick={closeDialog} />
+        <Button variant='secondary' iconName={'xmark'} onClick={closeDialog} />
         <StyledCustomContantContainer>{children}</StyledCustomContantContainer>
       </StyledDialogContainer>
     </StyledDialog>

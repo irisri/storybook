@@ -22,6 +22,6 @@ export const WithIcon: Story = {
   render: () => {
     const [value, setValue] = useState('');
 
-    return <Input iconName={'Search'} placeHolder='search' value={value} onChange={setValue} />;
+    return <Input iconName={'magnifying-glass'} placeHolder='search' value={value} onChange={setValue} />;
   },
 };

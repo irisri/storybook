@@ -30,6 +30,7 @@ export const AllIcons: Story = {
       'edit',
       'filter',
       'star',
+      'user',
       ['fab', 'youtube'],
       ['far', 'bell'],
     ] as IconProps['iconName'][];
@@ -38,9 +39,14 @@ export const AllIcons: Story = {
       <Flex gap={8}>
         {iconNames.map((iconName) => {
           return (
-            <StyledIconContaner flexDirection='column' alignItems='center' width='fit-content' key={iconName}>
+            <StyledIconContaner
+              flexDirection='column'
+              alignItems='center'
+              width='fit-content'
+              key={iconName.toString()}
+            >
               <Icon iconName={iconName} size={'xl'} />
-              {iconName}
+              {Array.isArray(iconName) ? `[${iconName.join(', ')}]` : iconName}
             </StyledIconContaner>
           );
         })}
