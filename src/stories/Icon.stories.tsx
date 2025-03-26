@@ -3,6 +3,7 @@ import { Icon, type IconProps } from '../components/Icon';
 import styled from '@emotion/styled';
 import { colors } from '../components/colors';
 import { Flex } from '../components/Flex';
+import { CopyToClipBoard } from '../components/CopyToClipBoard';
 
 const StyledIconContaner = styled(Flex)`
   padding: 8px;
@@ -39,15 +40,15 @@ export const AllIcons: Story = {
       <Flex gap={8}>
         {iconNames.map((iconName) => {
           return (
-            <StyledIconContaner
-              flexDirection='column'
-              alignItems='center'
-              width='fit-content'
+            <CopyToClipBoard
+              text={Array.isArray(iconName) ? `[${iconName.join(', ')}]` : iconName}
               key={iconName.toString()}
             >
-              <Icon iconName={iconName} size={'xl'} />
-              {Array.isArray(iconName) ? `[${iconName.join(', ')}]` : iconName}
-            </StyledIconContaner>
+              <StyledIconContaner flexDirection='column' alignItems='center' width='fit-content'>
+                <Icon iconName={iconName} size={'xl'} />
+                {Array.isArray(iconName) ? `[${iconName.join(', ')}]` : iconName}
+              </StyledIconContaner>
+            </CopyToClipBoard>
           );
         })}
       </Flex>
