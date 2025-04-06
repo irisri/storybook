@@ -31,5 +31,7 @@ export const Basic: Story = {
       </StyledDiv>
     );
   },
-  args: {},
+  args: {
+    open: false,
+  },
 };

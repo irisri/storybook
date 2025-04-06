@@ -38,7 +38,8 @@ const AccordionItem = ({
   icon = false,
   description,
   borderColor,
-}: AccordionItmeType & { borderColor: Color }) => {
+  shouldOpenOne,
+}: AccordionItmeType & { borderColor: Color; shouldOpenOne: boolean }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleToggle = (event: SyntheticEvent<HTMLDetailsElement>) => {
@@ -46,7 +47,12 @@ const AccordionItem = ({
   };
 
   return (
-    <StyledDetails name='accordion-item' key={title} onToggle={handleToggle} borderColor={borderColor}>
+    <StyledDetails
+      name={shouldOpenOne ? 'accordion-item' : ''}
+      key={title}
+      onToggle={handleToggle}
+      borderColor={borderColor}
+    >
       <summary>
         {icon ? <Icon size={'sm'} iconName={isOpen ? 'arrow-down' : 'arrow-right'} /> : null}
         <Text variant='p' fontWeight={700}>
@@ -70,14 +76,20 @@ const StyledDiv = styled(Flex)<{ borderColor: Color }>`
 export type AccordionListType = {
   accordionList: AccordionItmeType[];
   borderColor?: Color;
+  shouldOpenOne?: boolean;
 };
 
-export const Accordion = ({ accordionList, borderColor }: AccordionListType) => {
+export const Accordion = ({ accordionList, borderColor, shouldOpenOne = true }: AccordionListType) => {
   const defaultBorderColor = colors.getColor('Gray.800') as Color;
   return (
     <StyledDiv borderColor={borderColor ?? defaultBorderColor} flexDirection='column'>
       {accordionList.map((accordion: AccordionItmeType) => (
-        <AccordionItem key={accordion.title} {...accordion} borderColor={borderColor ?? defaultBorderColor} />
+        <AccordionItem
+          key={accordion.title}
+          {...accordion}
+          shouldOpenOne={shouldOpenOne}
+          borderColor={borderColor ?? defaultBorderColor}
+        />
       ))}
     </StyledDiv>
   );

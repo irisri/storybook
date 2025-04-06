@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Accordion } from '../components/Accordion';
+import { Color, colors } from '../components/colors';
 
 const meta: Meta<typeof Accordion> = {
   title: 'Components/Accordion',
@@ -15,5 +16,7 @@ export const Primary: Story = {
       { title: 'Title', description: 'this is description', icon: true },
       { title: 'Second title', description: 'this is description' },
     ],
+    borderColor: colors.getColor('Gray.1000') as Color,
+    shouldOpenOne: true,
   },
 };
